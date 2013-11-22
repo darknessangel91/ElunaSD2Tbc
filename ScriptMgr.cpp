@@ -545,3 +545,14 @@ InstanceData* CreateInstanceData(Map* pMap)
 
     return pTempScript->GetInstanceData(pMap);
 }
+
+MANGOS_DLL_EXPORT
+GameObjectAI* GetGameObjectAI(GameObject* pGameObject)
+{
+    Script* pTempScript = m_scripts[pGameObject->GetGOInfo()->ScriptId];
+
+    if (!pTempScript || !pTempScript->GetAIName)
+        return NULL;
+
+    return pTempScript->GetAIName(pGameObject);
+}
