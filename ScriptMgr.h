@@ -11,6 +11,7 @@
 class Player;
 class Creature;
 class CreatureAI;
+class GameObjectAI;
 class InstanceData;
 class Quest;
 class Item;
