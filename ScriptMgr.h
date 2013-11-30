@@ -70,7 +70,7 @@ struct Script
         pQuestRewardedNPC(NULL), pQuestRewardedGO(NULL),
         pGOUse(NULL), pItemUse(NULL), pAreaTrigger(NULL), pProcessEventId(NULL),
         pEffectDummyNPC(NULL), pEffectDummyGO(NULL), pEffectDummyItem(NULL), pEffectScriptEffectNPC(NULL),
-        pEffectAuraDummy(NULL), GetAI(NULL), GetInstanceData(NULL), GetAIName(NULL)
+        pEffectAuraDummy(NULL), GetAI(NULL), GetInstanceData(NULL), GetGameObjectAI(NULL)
     {}
 
     std::string Name;
@@ -99,7 +99,7 @@ struct Script
     bool (*pEffectAuraDummy)(const Aura*, bool);
 
     CreatureAI* (*GetAI)(Creature*);
-    GameObjectAI* (*GetAIName)(GameObject*);
+    GameObjectAI* (*GetGameObjectAI)(GameObject*);
     InstanceData* (*GetInstanceData)(Map*);
 
     void RegisterSelf(bool bReportError = true);
