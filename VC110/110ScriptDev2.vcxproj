@@ -123,6 +123,9 @@
       <ImportLibrary>$(OutDir)mangosscript.lib</ImportLibrary>
       <TargetMachine>MachineX86</TargetMachine>
     </Link>
+    <PostBuildEvent>
+      <Command>copy ..\scriptdev2.conf.dist.in ..\..\..\..\bin\$(Platform)_$(Configuration)</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <Midl>
@@ -155,6 +158,9 @@
       <ImportLibrary>$(OutDir)mangosscript.lib</ImportLibrary>
       <TargetMachine>MachineX64</TargetMachine>
     </Link>
+    <PostBuildEvent>
+      <Command>copy ..\scriptdev2.conf.dist.in ..\..\..\..\bin\$(Platform)_$(Configuration)</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -183,6 +189,9 @@
       </DataExecutionPrevention>
       <ImportLibrary>$(OutDir)mangosscript.lib</ImportLibrary>
     </Link>
+    <PostBuildEvent>
+      <Command>copy ..\scriptdev2.conf.dist.in ..\..\..\..\bin\$(Platform)_$(Configuration)</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <Midl>
@@ -213,6 +222,9 @@
       </DataExecutionPrevention>
       <ImportLibrary>$(OutDir)mangosscript.lib</ImportLibrary>
     </Link>
+    <PostBuildEvent>
+      <Command>copy ..\scriptdev2.conf.dist.in ..\..\..\..\bin\$(Platform)_$(Configuration)</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\base\escort_ai.cpp" />
