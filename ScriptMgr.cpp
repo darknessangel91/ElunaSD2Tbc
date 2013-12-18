@@ -435,6 +435,19 @@ bool GOQuestAccept(Player* pPlayer, GameObject* pGo, const Quest* pQuest)
 }
 
 MANGOS_DLL_EXPORT
+bool GOQuestComplete(Player* pPlayer, GameObject* pGo, const Quest* pQuest)
+{
+    Script* pTempScript = m_scripts[pGo->GetScriptId()];
+
+    if (!pTempScript || !pTempScript->pQuestCompleteGO)
+        return false;
+
+    pPlayer->PlayerTalkClass->ClearMenus();
+
+    return pTempScript->pQuestCompleteGO(pPlayer, pGo, pQuest);
+}
+
+MANGOS_DLL_EXPORT
 bool GOQuestRewarded(Player* pPlayer, GameObject* pGo, Quest const* pQuest)
 {
     Script* pTempScript = m_scripts[pGo->GetGOInfo()->ScriptId];
@@ -559,12 +572,12 @@ InstanceData* CreateInstanceData(Map* pMap)
 }
 
 MANGOS_DLL_EXPORT
-GameObjectAI* GetGameObjectAI(GameObject* pGameObject)
+GameObjectAI* GetGameObjectAI(GameObject* pGo)
 {
-    Script* pTempScript = m_scripts[pGameObject->GetScriptId()];
+    Script* pTempScript = m_scripts[pGo->GetScriptId()];
 
     if (!pTempScript || !pTempScript->GetGameObjectAI)
         return NULL;
 
-    return pTempScript->GetGameObjectAI(pGameObject);
+    return pTempScript->GetGameObjectAI(pGo);
 }
