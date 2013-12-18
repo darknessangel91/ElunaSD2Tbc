@@ -346,6 +346,18 @@ bool QuestAccept(Player* pPlayer, Creature* pCreature, const Quest* pQuest)
     return pTempScript->pQuestAcceptNPC(pPlayer, pCreature, pQuest);
 }
 
+bool QuestComplete(Player* pPlayer, Creature* pCreature, const Quest* pQuest)
+{
+    Script* pTempScript = m_scripts[pCreature->GetScriptId()];
+
+    if (!pTempScript || !pTempScript->pQuestCompleteNPC)
+        return false;
+
+    pPlayer->PlayerTalkClass->ClearMenus();
+
+    return pTempScript->pQuestCompleteNPC(pPlayer, pCreature, pQuest);
+}
+
 MANGOS_DLL_EXPORT
 bool QuestRewarded(Player* pPlayer, Creature* pCreature, Quest const* pQuest)
 {

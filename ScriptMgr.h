@@ -66,7 +66,7 @@ struct Script
         pGossipHello(NULL), pGossipHelloGO(NULL), pGossipSelect(NULL), pGossipSelectGO(NULL),
         pGossipSelectWithCode(NULL), pGossipSelectGOWithCode(NULL),
         pDialogStatusNPC(NULL), pDialogStatusGO(NULL),
-        pQuestAcceptNPC(NULL), pQuestAcceptGO(NULL), pQuestAcceptItem(NULL),
+        pQuestAcceptNPC(NULL), pQuestAcceptGO(NULL), pQuestAcceptItem(NULL), pQuestCompleteNPC(NULL),
         pQuestRewardedNPC(NULL), pQuestRewardedGO(NULL),
         pGOUse(NULL), pItemUse(NULL), pAreaTrigger(NULL), pProcessEventId(NULL),
         pEffectDummyNPC(NULL), pEffectDummyGO(NULL), pEffectDummyItem(NULL), pEffectScriptEffectNPC(NULL),
@@ -86,6 +86,7 @@ struct Script
     bool (*pQuestAcceptNPC)(Player*, Creature*, Quest const*);
     bool (*pQuestAcceptGO)(Player*, GameObject*, Quest const*);
     bool (*pQuestAcceptItem)(Player*, Item*, Quest const*);
+    bool (*pQuestCompleteNPC)(Player*, Creature*, Quest const*);
     bool (*pQuestRewardedNPC)(Player*, Creature*, Quest const*);
     bool (*pQuestRewardedGO)(Player*, GameObject*, Quest const*);
     bool (*pGOUse)(Player*, GameObject*);
